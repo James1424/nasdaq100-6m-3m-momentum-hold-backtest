@@ -53,7 +53,6 @@ def fmt_detail_table(df: pd.DataFrame, top_n: int) -> pd.DataFrame:
         "decision_date",
         "sell_date",
         "holding_months",
-        "available_universe_size",
         "stock_1",
         "mom_1",
         "stock_1_return",
@@ -73,7 +72,6 @@ def fmt_detail_table(df: pd.DataFrame, top_n: int) -> pd.DataFrame:
             "decision_date": "Decision Date",
             "sell_date": "Sell Date",
             "holding_months": "Holding Months",
-            "available_universe_size": "Universe Size",
             "stock_1": "Stock 1",
             "mom_1": "Mom 1",
             "stock_1_return": "Stock 1 Return",
@@ -176,7 +174,7 @@ def build_top_n_sections(detail: pd.DataFrame, title: str) -> str:
             f"""
 ### {title} - Top {top_n}
 
-Each row is one monthly decision under the Top {top_n} version of this momentum strategy. The same selected stock basket is evaluated with 1, 2, and 3 month holding periods. `Universe Size` is the available point-in-time Nasdaq-100 universe after filtering for valid prices at that decision date.
+Each row is one monthly decision under the Top {top_n} version of this momentum strategy. The same selected stock basket is evaluated with 1, 2, and 3 month holding periods.
 
 {to_markdown(top_df)}
 """.strip()
